@@ -3,18 +3,19 @@
 
 AI-driven note-taking for swift capture & smart retrieval.
 
-## ⚡ Features
+### ⚡ Features
 
-- 📥 **Instant Capture:** Ideas noted in a flash.
-- 🤖 **AI-Organized:** Auto-categorized, titled, tagged notes.
-- 🔍 **Smart Search:** Find notes with semantic precision.
+| Instant Capture | AI-Organized | Smart-Search |
+| :-: | :-: | :-: |
+| Ideas noted in a flash | Auto-categorized, titled, tagged notes | Find notes with semantic precision. | 
+| <img src="./assets/logo-512x512.png" /> |  <img src="./assets/logo-512x512.png" />  |  <img src="./assets/logo-512x512.png" />  |
 
-## 🚀 Get Started
+### 🚀 Get Started
 
 ```powershell
 pnpm i
 ```
 
-## License
+### License
 
 Under [MIT](./LICENSE) license.
