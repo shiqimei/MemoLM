@@ -10,7 +10,9 @@ AI-driven note-taking for swift capture & smart retrieval.
 
 ## 🚀 Get Started
 
-[TODO]
+```powershell
+pnpm i
+```
 
 ## License
 
