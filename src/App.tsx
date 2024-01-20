@@ -1,6 +1,7 @@
 import IconSearch from './assets/search.svg'
 import IconHome from './assets/home.svg'
 import { createEffect, createSignal } from 'solid-js'
+import dayjs from 'dayjs'
 
 interface IMemo {
   type: 'text' | 'image' | 'video'
@@ -95,7 +96,10 @@ function App() {
             return (
               <div class='message w-full flex'>
                 <img class='messaeg-author h-6 w-6 mr-3 rounded' src='avatar.jpeg' alt='avatar' />
-                {renderMemo(memo)}
+                <div>
+                  <div class='message-date w-full text-gray-400 text-xs mb-1'>{dayjs(memo.created_at).format('YYYY-MM-DD HH:mm:ss')}</div>
+                  {renderMemo(memo)}
+                </div>
               </div>
             )
           })}

@@ -11,6 +11,7 @@
   "dependencies": {
     "@blocksuite/presets": "0.11.0-nightly-202401110520-c7e3024",
     "@blocksuite/store": "0.11.0-nightly-202401110520-c7e3024",
+    "dayjs": "^1.11.10",
     "solid-js": "^1.8.7"
   },
   "devDependencies": {
