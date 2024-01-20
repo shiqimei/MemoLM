@@ -1,31 +1,7 @@
-import { createEffect } from 'solid-js'
 import IconSearch from './assets/search.svg'
-import IconLightning from './assets/ligntning.svg'
-import { createEmptyPage, DocEditor } from '@blocksuite/presets'
-import { Text } from '@blocksuite/store'
-import '@blocksuite/presets/themes/affine.css'
+import IconHome from './assets/home.svg'
 
 function App() {
-  createEffect(async () => {
-    // Init editor with default block tree
-    const page = await createEmptyPage().init()
-    const editor = new DocEditor()
-    editor.page = page
-    editor.style.height = '100%'
-    editor.style.width = '100%'
-    editor.style.zIndex = '10'
-    const editorContainer = document.querySelector('#editor')
-
-    if (editorContainer != null) {
-      editorContainer.appendChild(editor)
-    }
-
-    // Update block node with some initial text content
-    const paragraphs = page.getBlockByFlavour('affine:paragraph')
-    const paragraph = paragraphs[0]
-    page.updateBlock(paragraph, { text: new Text('Hello World!') })
-  })
-
   return (
     <>
       <div class='sidebar w-[300px] h-screen bg-sidebar-background border-r border-seperator-color'>
@@ -40,14 +16,12 @@ function App() {
             </div>
           </div>
         </div>
-        <div class='quick-note-container px-4 pb-4'>
-          <div class='select-none bg-white cursor-pointer p-2 py-1 flex items-center border border-message-border rounded-md relative justify-center text-gray-600 hover:text-gray-800 active:border-sidebar-background'>
-            <IconLightning class='h-[16px] w-[16px] mx-2 absolute left-0' />
-            Quick Capture
-          </div>
-        </div>
         <div class='notes text-sm text-sidebar-item-foreground select-none'>
-          <div class='note px-4 text-sidebar-item-active-foreground bg-sidebar-item-active-background cursor-pointer p-2'>
+          <div class='note px-4 text-sidebar-item-active-foreground bg-sidebar-item-active-background cursor-pointer p-2 flex items-center'>
+            <IconHome class='h-[15px] w-[15px] mr-2' />
+            <span class='font-semibold'>Home</span>
+          </div>
+          <div class='note px-4 text-sidebar-item-active-foreground cursor-pointer p-2'>
             GitHub App vs OAuth App
           </div>
           <div class='note cursor-pointer p-2 px-4'>GitHub App vs OAuth App</div>
@@ -71,11 +45,7 @@ function App() {
             </div>
           </div>
         </div>
-        <div id='editor-container' class='input w-full h-[350px]'>
-          <div
-            id='editor'
-            class='editor mx-auto w-full h-full bg-white border-t border-message-border'
-          ></div>
+        <div id='editor-container' class='input w-full h-[350px] bg-white outline-none p-4 text-md text-[#262626]' contentEditable>
         </div>
       </div>
     </>
