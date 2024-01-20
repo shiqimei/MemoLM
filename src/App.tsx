@@ -2,12 +2,8 @@ import IconSearch from './assets/search.svg'
 import IconHome from './assets/home.svg'
 import { createEffect, createSignal } from 'solid-js'
 import dayjs from 'dayjs'
-
-interface IMemo {
-  type: 'text' | 'image' | 'video'
-  content: string
-  created_at: number
-}
+import { IMemo } from './types';
+import { Memo } from './Memo';
 
 function createLocalSignal(key: string, initialValue: IMemo[]) {
   // Attempt to get the stored value from localStorage
@@ -36,31 +32,6 @@ function App() {
     const json = await resp.json() as IMemo[]
     setMemos(json)
   })
-
-  function renderMemo(memo: IMemo) {
-    switch (memo.type) {
-      case 'text': {
-        return (
-          <div class='message-content w-full max-w-[672px] bg-white rounded-md border border-message-border text-gray-700 p-4 text-sm whitespace-pre-wrap'>
-            {memo.content}
-          </div>
-        )
-      }
-      case 'image': {
-        return (
-          <img class='message-content min-w-[100px] min-h-[100px] max-w-[300px] bg-white rounded-md border border-message-border text-gray-700 text-sm' src={`/api/assets/${memo.content}`} alt={memo.content} />
-        )
-      }
-      case 'video': {
-        return (
-          <video controls width="250" class='message-content max-w-[300px] bg-white rounded-md border border-message-border text-gray-700 text-sm'>
-            <source src={`/api/assets/${memo.content}`} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        )
-      }
-    }
-  }
 
   return (
     <>
@@ -98,7 +69,7 @@ function App() {
                 <img class='messaeg-author h-6 w-6 mr-3 rounded' src='avatar.jpeg' alt='avatar' />
                 <div>
                   <div class='message-date w-full text-gray-400 text-xs mb-1'>{dayjs(memo.created_at).format('YYYY-MM-DD HH:mm:ss')}</div>
-                  {renderMemo(memo)}
+                  <Memo memo={memo} />
                 </div>
               </div>
             )
