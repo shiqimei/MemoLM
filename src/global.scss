@@ -8,3 +8,9 @@
   max-width: 980px;
   margin: 0 auto;
 }
+.markdown-body ol {
+  list-style: decimal;
+}
+.markdown-body ul {
+  list-style: disc;
+}

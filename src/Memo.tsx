@@ -21,8 +21,8 @@ export function Memo({ memo }: IMemoProps) {
     const renderMemoContent = () => {
         switch (memo.type) {
             case 'text':
-                return <div class="w-full max-w-[772px] bg-white  cursor-text" ref={setRoot}>
-                    <article class="markdown-body text-gray-700 p-2 text-sm rounded-md border border-gray-300 p-4" innerHTML={memo.html?.length ? memo.html : memo.content}>
+                return <div class="w-full max-w-[800px] bg-white  cursor-text" ref={setRoot}>
+                    <article class="markdown-body text-gray-700 p-2 text-sm rounded-md border border-gray-300 p-6" innerHTML={memo.html?.length ? memo.html : memo.content}>
                         {showTooltip() && (
                             <div class="tooltip absolute right-2 top-2">Copied!</div>
                         )}
