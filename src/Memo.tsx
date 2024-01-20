@@ -1,5 +1,6 @@
 import { createSignal, Show } from 'solid-js';
 import { IMemo } from './types';
+import './github-markdown.css'
 
 interface IMemoProps {
     memo: IMemo
@@ -17,7 +18,10 @@ export function Memo({ memo }: IMemoProps) {
     const renderMemoContent = () => {
         switch (memo.type) {
             case 'text':
-                return <div class="w-full max-w-[672px] bg-white rounded-md border border-gray-300 text-gray-700 p-4 text-sm whitespace-pre-wrap">{memo.content}</div>;
+                return <div class="w-full max-w-[672px] bg-white">
+                    <article class="markdown-body text-gray-700 p-2 text-sm  whitespace-pre-wrap  rounded-md border border-gray-300" innerHTML={memo.content}>
+                    </article>
+                </div>;
             case 'image':
                 return (
                     <img

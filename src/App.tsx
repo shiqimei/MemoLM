@@ -75,7 +75,7 @@ function App() {
             )
           })}
         </div>
-        <div id='editor-container' class='input w-full h-[350px] bg-white outline-none p-4 text-md text-[#262626] border-t border-seperator-color' contentEditable />
+        <div id='editor-container' class='input w-full h-[250px] bg-white outline-none p-4 text-md text-[#262626] border-t border-seperator-color' contentEditable />
       </div>
     </>
   )
